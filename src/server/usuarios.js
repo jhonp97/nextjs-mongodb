@@ -1,15 +1,18 @@
 "use server"
 
 // traer todos los postS
+
 export const getJsonUsuarios = async () => {
+  if (!process.env.NEXT_PUBLIC_API) return [];
 
-//    const res = await fetch("http://localhost:3001/api/v1/usuarios")
-   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/usuarios`)
-   
-    console.log("obteniendo usuarios")
-    const data = await res.json()
-    console.log("mis datos son", data)
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/usuarios`);
+    if (!res.ok) throw new Error('Respuesta no OK');
+    const data = await res.json();
     return data.data;
-    
+  } catch (error) {
+    console.error('Error al obtener usuarios:', error);
+    return [];
+  }
+};
 
-}
