@@ -9,7 +9,7 @@ const Usuarios = async () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-around bg-sky-100">
 
-             <h1 className="text-6xl font-extrabold text-blue-600  text-center">Soy Usuarios NEXTJS</h1> 
+             <h1 className="text-6xl font-extrabold text-blue-600  text-center">Soy Usuarios -- NEXTJS</h1> 
 
             <ul className=" flex flex-wrap gap-10 items-center justify-center p-5 ">
                 {usuarios.map((usuario) => (
